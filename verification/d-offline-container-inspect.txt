@@ -1,0 +1,29 @@
+D independent strong-offline audit container evidence
+Recorded: 2026-09-19
+Checker: agent D
+
+Container: /rmo2025p2-d-netnone-audit
+Status: exited
+ExitCode: 0
+OOMKilled: false
+Error: ""
+StartedAt: 2026-09-19T07:42:51.662941957Z
+FinishedAt: 2026-09-19T07:43:05.270642568Z
+NetworkMode: none
+User: 1001:1001
+ReadonlyRootfs: true
+Command: ["Rmo2025P2/Audit.lean"]
+Image: postgres:15
+
+Read-only bind mounts:
+- /home/zeke/.elan -> /home/zeke/.elan (RW=false, propagation=rprivate)
+- /dev/shm/rmo2025p2-clean2 -> /dev/shm/rmo2025p2-clean2 (RW=false, propagation=rprivate)
+
+The container also had a Docker-declared volume mounted read-write at
+/var/lib/postgresql/data. It was unrelated to the proof source and toolchain.
+Accordingly, this record claims a read-only root filesystem and read-only
+proof/toolchain bind mounts, not that every container mount was read-only.
+
+These values were extracted from `docker inspect` by agent D and independently
+re-read by C. This file is an objective evidence record, not a signature by C
+on D's behalf.
